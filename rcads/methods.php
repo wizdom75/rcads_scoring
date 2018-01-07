@@ -7,5 +7,8 @@
  */
 
 function cleanInput($input){
+    $input = strip_tags($input);
+    $input = filter_var( $input, FILTER_SANITIZE_STRING);
+    $input = mysqli_real_escape_string($con, $input);
     return $input;
 }
